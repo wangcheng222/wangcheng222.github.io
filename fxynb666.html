@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>范兴蓉nb666</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #8B0000, #DC143C, #FF0000);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "微软雅黑", "PingFang SC", sans-serif;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .love-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 手机完美兼容的爱心写法，再也不会变成元宝！ */
+        .love-heart {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #FF1493, #FF6347, #FFD700, #32CD32, #1E90FF);
+            background-size: 400% 400%;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: heart-glow 3s linear infinite, heart-beat 1.5s ease-in-out infinite;
+            box-shadow: 
+                0 0 20px rgba(255, 105, 180, 0.8),
+                0 0 40px rgba(255, 215, 0, 0.6),
+                0 0 60px rgba(135, 206, 235, 0.4);
+        }
+
+        .love-heart::before,
+        .love-heart::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .love-heart::before {
+            top: -75px;
+            left: 0;
+        }
+
+        .love-heart::after {
+            top: 0;
+            left: 75px;
+        }
+
+        /* 爱心流光动画 */
+        @keyframes heart-glow {
+            0% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 20px #FF1493, 0 0 40px #FFD700;
+            }
+            25% {
+                background-position: 50% 100%;
+                box-shadow: 0 0 20px #FF6347, 0 0 40px #1E90FF;
+            }
+            50% {
+                background-position: 100% 50%;
+                box-shadow: 0 0 20px #32CD32, 0 0 40px #FF1493;
+            }
+            75% {
+                background-position: 50% 0%;
+                box-shadow: 0 0 20px #1E90FF, 0 0 40px #FF6347;
+            }
+            100% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 20px #FFD700, 0 0 40px #32CD32;
+            }
+        }
+
+        /* 爱心跳动动画 */
+        @keyframes heart-beat {
+            0% {
+                transform: rotate(-45deg) scale(0.9);
+            }
+            50% {
+                transform: rotate(-45deg) scale(1.1);
+            }
+            100% {
+                transform: rotate(-45deg) scale(0.9);
+            }
+        }
+
+        .love-words {
+            max-width: 90%;
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .words-title {
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+        }
+
+        #loveText {
+            font-size: 22px;
+            color: #fff;
+            line-height: 2;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            min-height: 100px;
+            animation: text-fade 1s ease-in-out;
+        }
+
+        @keyframes text-fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="love-container">
+        <div class="love-heart"></div>
+    </div>
+    <div class="love-words">
+        <h2 class="words-title">范兴蓉nb666</h2>
+        <div id="loveText"></div>
+    </div>
+
+    <script>
+        // 改成专属应援词，循环播放！
+        const loveTexts = [
+            "范兴蓉守村王！",
+            "范兴蓉一辈子没女朋友！",
+            "范兴蓉sz！",
+            "范兴蓉没m！",
+            "范兴蓉乐子！"
+        ];
+
+        const loveTextDom = document.getElementById('loveText');
+        let index = 0;
+        function showLoveText() {
+            loveTextDom.textContent = loveTexts[index];
+            index = (index + 1) % loveTexts.length;
+        }
+        showLoveText();
+        setInterval(showLoveText, 1500); // 1.5秒切换一次，更有节奏
+    </script>
+</body>
+</html>
